@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // bundle 分析
 
 module.exports = {
   entry: {
@@ -10,7 +9,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({ title: "Output Management" }),
-    new BundleAnalyzerPlugin()
   ],
   optimization: {
     splitChunks: {
