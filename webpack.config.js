@@ -6,6 +6,10 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist",
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({ title: "Output Management" }),
@@ -17,9 +21,8 @@ module.exports = {
   },
   output: {
     filename: "[name].bundle.js",
-    chunkFilename: '[name].bundle.js',
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "./", // 使用相对路径
+    chunkFilename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
