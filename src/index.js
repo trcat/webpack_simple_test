@@ -1,24 +1,13 @@
-function getComponent() {
-  return Promise.all([
-    import(/* webpackChunkName: "lodash" */ "lodash"),
-    import(/* webpackChunkName: "print" */ "./print.js"),
-  ])
-    .then((data) => {
-      var element = document.createElement("div");
-      var button = document.createElement("button");
+import { cube } from "./math.js";
 
-      element.innerHTML = data[0].join(["Hello", "webpack"], " ");
+function component() {
+  var element = document.createElement("pre");
 
-      button.innerHTML = "Click me and check the console!";
-      button.onclick = data[1].default
+  element.innerHTML = ["Hello webpack", "5 cubed is equal to " + cube(5)].join(
+    "\n\n"
+  );
 
-      element.appendChild(button);
-
-      return element;
-    })
-    .catch((error) => "An error occurred while loading the component");
+  return element;
 }
 
-getComponent().then((component) => {
-  document.body.appendChild(component);
-});
+document.body.appendChild(component());
