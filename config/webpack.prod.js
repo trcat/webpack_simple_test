@@ -1,8 +1,9 @@
-const merge = require("webpack-merge");
+const webpack = require("webpack");
+const WebpackMerge = require("webpack-merge");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const common = require("./webpack.common.js");
 
-module.exports = merge(common, {
+module.exports = WebpackMerge.merge(common, {
   optimization: {
     splitChunks: {
       chunks: "all",
@@ -12,6 +13,9 @@ module.exports = merge(common, {
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
+    }),
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify("production"),
     }),
   ],
 });
