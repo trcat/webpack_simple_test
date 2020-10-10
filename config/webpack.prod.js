@@ -34,8 +34,8 @@ module.exports = WebpackMerge.merge(common, {
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
+      filename: "css/[name].css",
+      chunkFilename: "css/[id].css",
     }),
   ],
 });
