@@ -12,4 +12,18 @@ function component() {
   return element;
 }
 
-document.body.appendChild(component());
+function flexComponent() {
+  const element = document.createElement("div");
+
+  element.classList.add("flex");
+
+  for (let i = 0; i < 2; i++) {
+    const item = document.createElement("div");
+    item.classList.add("flex-item");
+    element.appendChild(item);
+  }
+
+  return element;
+}
+
+document.body.append(component(), flexComponent());
