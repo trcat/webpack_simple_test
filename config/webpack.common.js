@@ -8,7 +8,12 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/template/index.html" }),
+    new HtmlWebpackPlugin({
+      filename: 'test-template.html',
+      template: "./src/template/test-template.html",
+      chunks: ['test']
+    }),
   ],
   output: {
     filename: "js/[name].bundle.js",
@@ -16,10 +21,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"],
